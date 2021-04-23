@@ -8,7 +8,14 @@
 </head>
 <body>
     <h1>Athletes</h1>
-    <h2>Adam</h2>
+    <ul>
+        <% for (let athlete of athletes) { %>
+            <div>
+                <h2><a href="/athletes/<%= athlete._id %>"><%= athlete.name %></a></h2>
+                <h3><%= athlete.affiliation %></h3>
+            </div>
+        <% } %>
+    </ul>
     <h2>Byron</h2>
 </body>
 </html>
