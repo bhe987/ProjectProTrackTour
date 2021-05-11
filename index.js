@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 const Athlete = require("./models/athlete");
+const Meet = require("./models/meet");
 
 mongoose.connect("mongodb://localhost:27017/trackAmerica", {
     useNewUrlParser: true,
@@ -27,6 +28,11 @@ app.get("/", function(req, res){
 app.get("/athletes", async function(req, res){
     const athletes = await Athlete.find({});
     res.render("athletes/index.ejs", {athletes});
+});
+
+app.get("/meets", async function(req, res){
+    const meets = await Meet.find({});
+    res.render("meets/index.ejs", {meets});
 });
 
 app.listen(3000, function(){
